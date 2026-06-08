@@ -1,24 +1,21 @@
-// Get all price cells
-const prices = document.querySelectorAll('.prices');
+document.querySelector("button").addEventListener("click", function () {
 
-let total = 0;
+    const prices = document.querySelectorAll(".prices");
 
-// Calculate total price
-prices.forEach(price => {
-    total += Number(price.textContent);
+    let total = 0;
+
+    prices.forEach(price => {
+        total += Number(price.textContent);
+    });
+
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+
+    td.id = "ans";
+    td.colSpan = 2;
+    td.textContent = total;
+
+    tr.appendChild(td);
+
+    document.querySelector("table").appendChild(tr);
 });
-
-// Create a new row
-const tr = document.createElement('tr');
-
-// Create a single cell
-const td = document.createElement('td');
-td.textContent = total;
-
-// If required, make the cell span across all columns
-td.colSpan = 2;
-
-tr.appendChild(td);
-
-// Append the row to the table
-document.querySelector('table').appendChild(tr);
